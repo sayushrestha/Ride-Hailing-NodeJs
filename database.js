@@ -16,4 +16,9 @@ const insert = (filename, object) => {
     save(filename, objects.concat(object));
 }
 
-module.exports = { save, load, insert };
+const remove = (filename, index) => {
+    const objects = load(filename);
+    objects.splice(index, 1);
+    save(filename, objects);
+}
+module.exports = { save, load, insert, remove };

@@ -23,8 +23,8 @@ function printBookingHistory(passenger) {
 }
 
 // db.save('passenger', [{name: 'Armagan', location: 'Berlin'}])
-db.save('passengers', [armagan, mert])
-db.save('drivers', [stefan])
+// db.save('passengers', [armagan, mert])
+// db.save('drivers', [stefan])
 
 
 
@@ -33,8 +33,10 @@ db.save('drivers', [stefan])
 // db.save('driver', [stefan])
 // const passengers = db.load('passengers')
 // passengers.forEach(printBookingHistory)
-const betul = new Passenger('betul', 'Tegel');
-db.insert('passengers', betul);
+// const betul = new Passenger('betul', 'Tegel');
+// db.insert('passengers', betul);
+db.remove('passengers', 3); // remove by index
+
 const passengers = db.load('passengers');
 passengers.forEach(p => console.log(p.name));
 
