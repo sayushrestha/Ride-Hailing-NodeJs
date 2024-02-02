@@ -21,4 +21,8 @@ const remove = (filename, index) => {
     objects.splice(index, 1);
     save(filename, objects);
 }
-module.exports = { save, load, insert, remove };
+const findByName = (filename, name) => {
+    const objects = load(filename);
+    return objects.find(p => p.name === name);
+}
+module.exports = { save, load, insert, remove, findByName };
