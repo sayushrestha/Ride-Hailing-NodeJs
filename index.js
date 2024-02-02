@@ -1,5 +1,5 @@
 const colors = require('colors')
-
+const db = require('./database')
 const Passenger = require('./passenger')
 const Driver = require('./driver')
 
@@ -19,4 +19,10 @@ function printBookingHistory(passenger) {
   passenger.bookings.forEach(printBooking)
 }
 
-printBookingHistory(armagan)
+db.save('passenger', [{name: 'Armagan', location: 'Berlin'}])
+// db.save('passenger', [armagan])
+// db.save('driver', [stefan])
+// const passengers = db.load('passengers')
+// passengers.forEach(printBookingHistory)
+
+// printBookingHistory(armagan)
