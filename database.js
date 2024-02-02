@@ -5,7 +5,8 @@ const save = (filename, objects) => {
 }
 
 const load = (filename) => {
-
+    const file = fs.readFileSync(`${filename}.json`, 'utf8');
+    return JSON.parse(file);
 }
 
 

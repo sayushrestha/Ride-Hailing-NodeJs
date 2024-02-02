@@ -20,6 +20,8 @@ function printBookingHistory(passenger) {
 }
 
 db.save('passenger', [{name: 'Armagan', location: 'Berlin'}])
+const passengers = db.load('passenger')
+console.log(passengers);
 // db.save('passenger', [armagan])
 // db.save('driver', [stefan])
 // const passengers = db.load('passengers')
