@@ -6,7 +6,7 @@ const Driver = require('./driver')
 
 // const armagan = new Passenger('Armagan', 'Kreuzberg')
 // const mert = new Passenger('Mert', 'Mitte')
-// const stefan = new Driver('Stefan', 'Treptower Park')
+const stefan = new Driver('Stefan', 'Treptower Park')
 
 // armagan.book(stefan, 'Kreuzberg', 'Neukolln')
 // armagan.book(stefan, 'Neukolln', 'Mitte')
@@ -19,6 +19,9 @@ function printBooking(booking) {
 }
 
 function printBookingHistory(passenger) {
+  if(passenger.bookings.length == 0){
+    console.log(`${colors.blue(passenger.name)} has no bookings`)
+  }
   passenger.bookings.forEach(printBooking)
 }
 
@@ -38,6 +41,7 @@ function printBookingHistory(passenger) {
 db.remove('passengers', 3); // remove by index
 
 const armagan = db.findByName('passengers', 'Armagan');
+armagan.book(stefan, 'SXF', 'TXL');
 printBookingHistory(armagan)
 
 
