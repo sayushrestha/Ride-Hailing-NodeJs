@@ -11,5 +11,9 @@ const load = (filename) => {
     return flatted.parse(file);
 }
 
+const insert = (filename, object) => {
+    const objects = load(filename);
+    save(filename, objects.concat(object));
+}
 
-module.exports = { save, load };
+module.exports = { save, load, insert };
