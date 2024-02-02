@@ -1,5 +1,6 @@
 const colors = require('colors')
 const db = require('./database')
+
 const Passenger = require('./passenger')
 const Driver = require('./driver')
 
@@ -19,12 +20,16 @@ function printBookingHistory(passenger) {
   passenger.bookings.forEach(printBooking)
 }
 
-db.save('passenger', [{name: 'Armagan', location: 'Berlin'}])
-const passengers = db.load('passenger')
-console.log(passengers);
+// db.save('passenger', [{name: 'Armagan', location: 'Berlin'}])
+db.save('passengers', [armagan])
+
+const passengers = db.load('passengers');
+
+// console.log(armagan.bookings[0])
+
 // db.save('passenger', [armagan])
 // db.save('driver', [stefan])
 // const passengers = db.load('passengers')
-// passengers.forEach(printBookingHistory)
+passengers.forEach(printBookingHistory)
 
 // printBookingHistory(armagan)
