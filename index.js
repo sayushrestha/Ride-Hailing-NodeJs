@@ -9,14 +9,14 @@ const {passengerDatabase, driverDatabase} = require('./database') // ='./databas
 
 const armagan = new Passenger(undefined, 'Armagan', 'Kreuzberg')
 const mert = new Passenger(undefined,'Mert', 'Mitte')
-const stefan = new Driver(undefined, 'Stefan', 'Treptower Park')
+const stefan = new Driver('Stefan', 'Treptower Park')
 
 // const armagan3 = Passenger.create({name: 'Armagan', location: 'Kreuzberg'}) VALID
 armagan.book(stefan, 'Kreuzberg', 'Neukolln')
 armagan.book(stefan, 'Neukolln', 'Mitte')
 armagan.book(stefan, 'Mitte', 'Kreuzberg')
 armagan.book(stefan, 'Kreuzberg', 'SXF')
-mert.book(mert, 'Kreuzberg', 'SXF')
+mert.book(stefan, 'Kreuzberg', 'SXF')
 
 function printBooking(booking) {
   console.log(`${colors.blue(booking.passenger.name)} booked ${colors.blue(booking.driver.name)} to travel from ${colors.bgRed.white(booking.origin)} to ${colors.bgRed.white(booking.destination)}`)
@@ -63,3 +63,5 @@ passengers.forEach(printBookingHistory)
 
 
 //const armagan2 = passengers[0]; // we can not get passenger object
+
+console.log(driverDatabase.findByDriverName('Stefan'))
