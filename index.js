@@ -31,7 +31,7 @@ function printBookingHistory(passenger) {
 // db.save('passenger', [{name: 'Armagan', location: 'Berlin'}])
 // db.save('passengers', [armagan, mert])
 // db.save('drivers', [stefan])
-
+PassengerDatabase.save([armagan, mert])
 
 
 // console.log(armagan.bookings[0])

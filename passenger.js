@@ -5,6 +5,7 @@ class Passenger {
     this.name = name
     this.location = location
     this.bookings = []
+    this.filename = 'passenger'
   }
 
   book(driver, origin, destination) {
