@@ -32,9 +32,9 @@ function printBookingHistory(passenger) {
 // db.save('passenger', [{name: 'Armagan', location: 'Berlin'}])
 // db.save('passengers', [armagan, mert])
 // db.save('drivers', [stefan])
-passengerDatabase.save([armagan, mert]);
+// passengerDatabase.save([armagan, mert]);
 
-driverDatabase.save([stefan]);
+// driverDatabase.save([stefan]);
 
 // console.log(armagan.bookings[0])
 // db.save('passenger', [armagan])
@@ -49,7 +49,7 @@ const armagan2 = passengerDatabase.findByName('Armagan');
 
 // armagan.book(stefan, 'SXF', 'TXL');
 
-armagan2.book(stefan, 'Mitte', 'AEF');
+armagan2.book(stefan, 'Mitte', 'AEP');
 passengerDatabase.update(armagan);
 printBookingHistory(armagan2);
 // const passengers = db.load('passengers');
