@@ -66,3 +66,4 @@ passengers.forEach(printBookingHistory)
 
 console.log(driverDatabase.findByDriverName('Stefan'))
 console.log(driverDatabase.findByLocation('Treptower Park'))
+console.log(passengerDatabase.findBy('Treptower Park'))
