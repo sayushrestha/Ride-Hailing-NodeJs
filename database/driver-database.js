@@ -7,6 +7,9 @@ class DriverDatabase extends BaseDatabase {
         const driver = objects.find(o => o.name == name)
         return driver
     }
+    findByLocation(location) {
+        return this.load().find(o => o.location == location)
+    }
 }
 
 module.exports = new DriverDatabase(Driver)

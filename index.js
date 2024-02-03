@@ -65,3 +65,4 @@ passengers.forEach(printBookingHistory)
 //const armagan2 = passengers[0]; // we can not get passenger object
 
 console.log(driverDatabase.findByDriverName('Stefan'))
+console.log(driverDatabase.findByLocation('Treptower Park'))
