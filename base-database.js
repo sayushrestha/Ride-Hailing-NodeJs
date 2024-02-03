@@ -15,7 +15,8 @@ class BaseDatabase {
     load() {
         const file = fs.readFileSync(`${this.filename}.json`, 'utf8');
         
-        return flatted.parse(file);
+        const objects =  flatted.parse(file);
+        return objects.map(this.model.create)
     }
 
     insert(object) {
@@ -28,10 +29,7 @@ class BaseDatabase {
         objects.splice(index, 1);
         save(objects);
     }
-    findByName(name) {
-        const objects = this.load();
-        return objects.find(p => p.name === name);
-    }
+   
 }
 
 module.exports = BaseDatabase
