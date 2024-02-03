@@ -29,6 +29,10 @@ class BaseDatabase {
         objects.splice(index, 1);
         save(objects);
     }
+
+    update(object) { // uuid
+
+    }
    
 }
 

@@ -7,9 +7,9 @@ const Driver = require('./driver')
 const passengerDatabase = require('./passenger-database')
 const driverDatabase = require('./driver-database')
 
-const armagan = new Passenger('Armagan', 'Kreuzberg')
-const mert = new Passenger('Mert', 'Mitte')
-const stefan = new Driver('Stefan', 'Treptower Park')
+const armagan = new Passenger(undefined, 'Armagan', 'Kreuzberg')
+const mert = new Passenger(undefined,'Mert', 'Mitte')
+const stefan = new Driver(undefined, 'Stefan', 'Treptower Park')
 
 armagan.book(stefan, 'Kreuzberg', 'Neukolln')
 armagan.book(stefan, 'Neukolln', 'Mitte')
@@ -45,10 +45,12 @@ driverDatabase.save([stefan]);
 // db.remove('passengers', 3); // remove by index
 
 const armagan2 = passengerDatabase.findByName('Mert');
+// printBookingHistory(armagan2);
 // armagan.book(stefan, 'SXF', 'TXL');
 
-armagan2.book(stefan, 'Mitte', 'SXF');
-printBookingHistory(armagan2);
+armagan2.book(stefan, 'Mitte', 'AEF');
+passengerDatabase.update(armagan);
+
 // const passengers = db.load('passengers');
 // passengers.forEach(p => console.log(p.name));
 
