@@ -11,6 +11,7 @@ const armagan = new Passenger(undefined, 'Armagan', 'Kreuzberg')
 const mert = new Passenger(undefined,'Mert', 'Mitte')
 const stefan = new Driver(undefined, 'Stefan', 'Treptower Park')
 
+// const armagan3 = Passenger.create({name: 'Armagan', location: 'Kreuzberg'}) VALID
 armagan.book(stefan, 'Kreuzberg', 'Neukolln')
 armagan.book(stefan, 'Neukolln', 'Mitte')
 armagan.book(stefan, 'Mitte', 'Kreuzberg')
@@ -44,13 +45,13 @@ driverDatabase.save([stefan]);
 // db.insert('passengers', betul);
 // db.remove('passengers', 3); // remove by index
 
-const armagan2 = passengerDatabase.findByName('Mert');
-// printBookingHistory(armagan2);
+const armagan2 = passengerDatabase.findByName('Armagan');
+
 // armagan.book(stefan, 'SXF', 'TXL');
 
 armagan2.book(stefan, 'Mitte', 'AEF');
 passengerDatabase.update(armagan);
-
+printBookingHistory(armagan2);
 // const passengers = db.load('passengers');
 // passengers.forEach(p => console.log(p.name));
 

@@ -27,11 +27,14 @@ class BaseDatabase {
     remove(index)  {
         const objects = this.load();
         objects.splice(index, 1);
-        save(objects);
+        this.save(objects);
     }
 
     update(object) { // uuid
-
+        const objects = this.load();
+        const index = objects.findIndex(o => o.id = object.id)
+        objects.splice(index, 1, object);
+        this.save(objects);
     }
    
 }
