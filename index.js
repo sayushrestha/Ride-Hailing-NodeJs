@@ -3,9 +3,9 @@ const colors = require('colors')
 
 const Passenger = require('./passenger')
 const Driver = require('./driver')
-
-const passengerDatabase = require('./passenger-database')
-const driverDatabase = require('./driver-database')
+const {passengerDatabase, driverDatabase} = require('./database') // ='./database'
+// const passengerDatabase = require('./database/passenger-database')
+// const driverDatabase = require('./database/driver-database')
 
 const armagan = new Passenger(undefined, 'Armagan', 'Kreuzberg')
 const mert = new Passenger(undefined,'Mert', 'Mitte')
@@ -32,9 +32,9 @@ function printBookingHistory(passenger) {
 // db.save('passenger', [{name: 'Armagan', location: 'Berlin'}])
 // db.save('passengers', [armagan, mert])
 // db.save('drivers', [stefan])
-// passengerDatabase.save([armagan, mert]);
+passengerDatabase.save([armagan, mert]);
 
-// driverDatabase.save([stefan]);
+driverDatabase.save([stefan]);
 
 // console.log(armagan.bookings[0])
 // db.save('passenger', [armagan])
@@ -49,9 +49,12 @@ const armagan2 = passengerDatabase.findByName('Armagan');
 
 // armagan.book(stefan, 'SXF', 'TXL');
 
-armagan2.book(stefan, 'Mitte', 'AEP');
+armagan2.book(stefan, 'Mitte', 'AEW');
 passengerDatabase.update(armagan);
-printBookingHistory(armagan2);
+// printBookingHistory(armagan2);
+
+const passengers = passengerDatabase.load()
+passengers.forEach(printBookingHistory)
 // const passengers = db.load('passengers');
 // passengers.forEach(p => console.log(p.name));
 
