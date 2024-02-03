@@ -44,9 +44,9 @@ DriverDatabase.save([stefan]);
 // db.insert('passengers', betul);
 // db.remove('passengers', 3); // remove by index
 
-// const armagan = db.findByName('passengers', 'Armagan');
+const armagan2 = PassengerDatabase.findByName('Armagan');
 // armagan.book(stefan, 'SXF', 'TXL');
-// printBookingHistory(armagan)
+printBookingHistory(armagan2)
 
 
 // const passengers = db.load('passengers');
