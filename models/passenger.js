@@ -1,12 +1,13 @@
 const Booking = require('./booking')
 const uuid = require('uuid')
+
 class Passenger {
   constructor(id = uuid.v4(), name, location, bookings = []) {
     this.id = id
+
     this.name = name
     this.location = location
     this.bookings = bookings
-    this.filename = 'passenger'
   }
 
   book(driver, origin, destination) {
@@ -17,7 +18,7 @@ class Passenger {
     return booking
   }
 
-  static create({id, name, location, bookings}){ // I will use this in load functions
+  static create({id, name, location, bookings}) {
     return new Passenger(id, name, location, bookings)
   }
 }
