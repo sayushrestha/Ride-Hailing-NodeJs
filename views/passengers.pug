@@ -15,3 +15,6 @@ html(lang="en")
         h2 Passengers
         p There are #{passengers.length} passengers waiting
 
+        ol 
+            each passenger in passengers
+                li #{passenger.name} wants to go to #{passenger.bookings[0] && passenger.bookings[0].destination}
