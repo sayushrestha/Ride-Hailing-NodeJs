@@ -17,4 +17,11 @@ html(lang="en")
 
         ol 
             each passenger in passengers
-                li #{passenger.name} wants to go to #{passenger.bookings[0] && passenger.bookings[0].destination}
+                li= passenger.name 
+                    h3 Booking History 
+                    ol
+                        if passenger.bookings.length 
+                            each booking in passenger.bookings
+                                li From #{booking.origin} to #{booking.destination}
+                        else 
+                            li No bookings
