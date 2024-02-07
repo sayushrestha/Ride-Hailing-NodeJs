@@ -7,7 +7,8 @@ app.set('view engine', 'pug')
 
 app.get('/passengers', async(req, res)=> {
     const passengers = await passengerDatabase.load()
-    res.send(flatted.stringify(passengers))
+    // res.send(flatted.stringify(passengers))
+    res.render('passengers', {passengers}) // res.render('passengers', {passengers:passengers})
 })
 
 app.get('/', (req, res) => {
