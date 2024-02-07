@@ -9,7 +9,7 @@ app.get('/passengers', async(req, res)=> {
 })
 
 app.get('/', (req, res) => {
-    res.send('homepage')
+    res.sendFile(`${__dirname}/index.html`)
 })
 app.listen(3000, ()=> {
     console.log('started listening on 3000')
