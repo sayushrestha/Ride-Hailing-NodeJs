@@ -17,8 +17,9 @@ app.get('/passengers', async(req, res)=> {
 
 app.post('/passengers', async(req, res)=> {
     console.log("req.body", req.body)
-    res.send('ok')
-    // await passengerDatabase.insert(Passenger.create(req.params.name, req.params.locaation));
+    const passenger = Passenger.create(req.body)
+    await passengerDatabase.insert(passenger);
+    res.send(passenger)
 })
 
 //http://localhost:3000/passenger/d009af8b-b539-466e-ac71-f17037af92a6
