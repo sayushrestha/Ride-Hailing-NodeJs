@@ -16,9 +16,7 @@ app.get('/passengers', async(req, res)=> {
 })
 
 app.post('/passengers', async(req, res)=> {
-    console.log("req.body", req.body)
-    const passenger = Passenger.create(req.body)
-    await passengerDatabase.insert(passenger);
+    const passenger = await passengerDatabase.insert(req.body);
     res.send(passenger)
 })
 

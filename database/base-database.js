@@ -1,5 +1,6 @@
 const fs = require('fs')
 const flatted = require('flatted')
+const Passenger = require('../models/passenger')
 
 class BaseDatabase {
   constructor(model) {
@@ -30,7 +31,12 @@ class BaseDatabase {
 
   async insert(object) {
     const objects = await this.load()
-    return this.save(objects.concat(object))
+    if(!(object instanceof this.model)){
+      object = this.model.create(object)
+    }
+   
+    await this.save(objects.concat(object))
+    return object
   }
 
   async remove(index) {
