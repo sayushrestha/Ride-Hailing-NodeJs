@@ -32,11 +32,27 @@ app.get('/passenger/:passengerId', async(req, res)=> {
     res.render('passenger', {passenger})
 })
 
-//axios.post('/passengers/1021e7e2-9c5b-4fe4-abfe-4a75c76fa4dc/bookings?driverId=65a994cd-031a-4878-aae0-65e6f538934f').then(res=>console.log(res.data)).catch(err=> console.log(err))
+//axios.post('/passengers/1d864de0-9e9a-4891-85ac-de091d5b1b7f/bookings?driverId=eb11c6b9-6d5f-4e93-8ebf-2f6f275f40f3').then(res=>console.log(res.data)).catch(err=> console.log(err))
+
+//axios.post('/passengers/1d864de0-9e9a-4891-85ac-de091d5b1b7f/bookings?driverId=eb11c6b9-6d5f-4e93-8ebf-2f6f275f40f3&origin=Kreuzberg&destination=TXL').then(res=>console.log(res.data)).catch(err=> console.log(err))
+
+/*
+axios.post('/passengers/1d864de0-9e9a-4891-85ac-de091d5b1b7f/bookings', {
+  driverId: 'eb11c6b9-6d5f-4e93-8ebf-2f6f275f40f3',
+  origin: 'TXL',
+  destination: 'Mitte'
+})
+  .then(res => console.log(res.data))
+  .catch(err => console.log(err)) */
+// const driver = await driverDatabase.find(req.query.driverId)
+
 app.post('/passengers/:passengerId/bookings', async(req, res)=> {
-    const passenger = await passengerDatabase.find(req.params.passengerId)
-    const driver = await driverDatabase.find(req.query.driverId)
-    passenger.book(driver, 'SXF', 'Kreuzberg')
+    const passengerId = req.params.passengerId
+    const passenger = await passengerDatabase.find(passengerId)
+
+    const { driverId, origin, destination } = req.body
+    const driver = await driverDatabase.find(driverId)
+    passenger.book(driver, origin, destination)
     await passengerDatabase.update(passenger)
     res.send(flatted.stringify(passenger))
 
