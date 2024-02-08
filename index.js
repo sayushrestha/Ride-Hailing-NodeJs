@@ -20,6 +20,11 @@ app.post('/passengers', async(req, res)=> {
     res.send(passenger)
 })
 
+app.delete('/passengers/:id', async(req, res) => {
+    await passengerDatabase.removeBy('id', req.params.id)
+    res.send('OK')
+})
+
 //http://localhost:3000/passenger/d009af8b-b539-466e-ac71-f17037af92a6
 app.get('/passenger/:id', async(req, res)=> {
     const passenger = await passengerDatabase.find(`${req.params.id}`)
