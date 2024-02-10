@@ -10,6 +10,7 @@ router.get('/', async(req, res)=> {
     res.render('passengers', {passengers}) // res.render('passengers', {passengers:passengers})
 })
 
+// axios.post('/passengers', { name: "Hilal", location: "Frankfurt"}).then(res=> res.data).then(console.log).catch(console.log)
 router.post('/', async(req, res)=> {
     const passenger = await passengerDatabase.insert(req.body);
     res.send(passenger)
