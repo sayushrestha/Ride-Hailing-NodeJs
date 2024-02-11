@@ -6,8 +6,7 @@ const router = require('express').Router()
 
 router.get('/', async(req, res)=> {
     const passengers = await passengerDatabase.load()
-    // res.send(flatted.stringify(passengers))
-    res.render('passengers', {passengers}) // res.render('passengers', {passengers:passengers})
+    res.render('passengers', {passengers}) // res.render
 })
 
 // axios.post('/passengers', { name: "Hilal", location: "Frankfurt"}).then(res=> res.data).then(console.log).catch(console.log)

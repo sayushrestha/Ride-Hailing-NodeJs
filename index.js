@@ -3,6 +3,7 @@ const express = require('express')
 const passengersRouter = require('./routes/passengers')
 
 const indexRouter = require('./routes/index')
+require('./mongo-connection')
 const bodyParser = require('body-parser')
 const app = express()
 

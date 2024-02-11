@@ -1,0 +1,8 @@
+POST http://localhost:3000/passengers HTTP/1.1
+content-type: application/json
+
+{"name":"mongodb", "location":"kuzguncuk"}
+
+###
+
+GET http://localhost:3000/passengers/3b07ee32-256c-42b0-a2e5-94386c03c1b1 HTTP/1.1
