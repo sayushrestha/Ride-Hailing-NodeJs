@@ -43,7 +43,7 @@ axios.post('/passengers/1d864de0-9e9a-4891-85ac-de091d5b1b7f/bookings', {
 // const driver = await driverDatabase.find(req.query.driverId)
 
 router.post('/:passengerId/bookings', async(req, res)=> {
-    const passengerId = req.params.passengerId
+    const { passengerId }= req.params.passengerId
     const passenger = await passengerDatabase.find(passengerId)
 
     const { driverId, origin, destination } = req.body
@@ -54,4 +54,11 @@ router.post('/:passengerId/bookings', async(req, res)=> {
 
 })
 
+// change one property of one record
+router.patch('/:passengerId', async (req, res) => {
+    const { passengerId }= req.params.passengerId
+    const {name} = req.body
+
+    await passengerDatabase.update( passengerId, { name })
+})
 module.exports = router

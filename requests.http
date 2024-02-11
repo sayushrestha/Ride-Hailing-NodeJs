@@ -1,11 +1,19 @@
 POST http://localhost:3000/passengers HTTP/1.1
 content-type: application/json
 
-{"name":"mongodb 2", "location":"kuzguncuk"}
+{"name":"mongodb 4", "location":"kuzguncuk"}
 
 ###
 
-GET http://localhost:3000/passengers/65c8e3d870dad35ee035663f HTTP/1.1
+GET http://localhost:3000/passengers/65c8ecf16ad5f18b39f3db58 HTTP/1.1
 
 ###
 DELETE http://localhost:3000/passengers/65c8e3d870dad35ee035663f HTTP/1.1
+
+
+###
+
+PATCH http://localhost:3000/passengers/65c8ecf16ad5f18b39f3db58 HTTP/1.1
+content-type: application/json
+
+{"name": "new name4"}
