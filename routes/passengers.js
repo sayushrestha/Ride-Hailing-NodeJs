@@ -15,8 +15,9 @@ router.post('/', async(req, res)=> {
     res.send(passenger)
 })
 
+
 router.delete('/:passengerId', async(req, res) => {
-    await passengerDatabase.removeBy('passengerId', req.params.passengerId)
+    await passengerDatabase.removeBy('_id', req.params.passengerId)
     res.send('OK')
 })
 

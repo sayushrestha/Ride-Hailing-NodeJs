@@ -34,16 +34,13 @@ class BaseDatabase {
   }
 
   async find(id) {
-    const objects = await this.load()
-    return objects.find(o => o.id == id)
+    // return this.model.find({ _id: id})
+    return this.model.findById(id)
   }
 
   async removeBy(property, value) {
-    const objects = await this.load()
-    const index = objects.findIndex(o => o[property] == value)
-    if (index == -1) throw new Error(`Cannot find ${this.model.name} instance with id ${value}`)
-    objects.splice(index, 1)
-    await this.save(objects)
+    return this.model.deleteOne({ [property]: value })
+
   }
 
   async update(object) {
@@ -63,7 +60,7 @@ class BaseDatabase {
   }
 
   async findBy(property, value) {
-    return (await this.load()).find(o => o[property] == value)
+    return this.model.find({ [property]: value })
   }
 }
 
