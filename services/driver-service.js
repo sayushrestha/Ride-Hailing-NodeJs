@@ -1,7 +1,7 @@
-const BaseDatabase = require('./base-database')
+const BaseService = require('./base-service')
 const Driver = require('../models/driver')
 
-class DriverDatabase extends BaseDatabase {
+class DriverService extends BaseService {
   async findByDriverName(name) {
     return this.findBy('name', name)
   }
@@ -11,4 +11,4 @@ class DriverDatabase extends BaseDatabase {
   }
 }
 
-module.exports = new DriverDatabase(Driver)
+module.exports = new DriverService(Driver)

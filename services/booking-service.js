@@ -1,7 +1,7 @@
-const BaseDatabase = require('./base-database')
+const BaseService = require('./base-service')
 const Booking = require('../models/booking')
 
-class BookingDatabase extends BaseDatabase {
+class BookingService extends BaseService {
   async findByPassengerId(passengerId) {
     return this.findBy('passenger', passengerId)
   }
@@ -11,4 +11,4 @@ class BookingDatabase extends BaseDatabase {
   }
 }
 
-module.exports = new BookingDatabase(Booking)
+module.exports = new BookingService(Booking)
