@@ -22,7 +22,7 @@ class BaseDatabase {
 
   async find(id) {
     // return this.model.find({ _id: id})
-    return this.model.findById(id).populate('bookings')
+    return this.model.findById(id)
   }
 
   async removeBy(property, value) {

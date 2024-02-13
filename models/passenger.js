@@ -4,8 +4,9 @@ const PassengerSchema = new mongoose.Schema({
   name: String,
   location: String,
   bookings: [{
-    type: mongoose.Types.ObjectId,
-    ref: 'Booking'
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Booking',
+    autopopulate: true
   }]
 });
 
@@ -16,5 +17,8 @@ PassengerSchema.methods.book = async function(driver, origin, destination) {
   await this.save()
   return booking
 }
+
+
+PassengerSchema.plugin(require('mongoose-autopopulate'));
 
 module.exports = mongoose.model('Passenger', PassengerSchema)
