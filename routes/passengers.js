@@ -1,6 +1,7 @@
 const flatted = require('flatted')
 const Passenger = require('../models/passenger')
-const {passengerDatabase, driverDatabase} = require('../database')
+const {passengerDatabase, driverDatabase, bookingDatabase} = require('../database')
+
 
 const router = require('express').Router()
 
@@ -51,7 +52,7 @@ router.post('/:passengerId/bookings', async(req, res)=> {
 
     
     const driver = await driverDatabase.find(driverId)
-    const booking = await passenger.book(driver, origin, destination)
+    const booking = await passengerDatabase.book(driver, passenger, origin, destination) // TO DO look
   
     res.send(flatted.stringify(booking))
 

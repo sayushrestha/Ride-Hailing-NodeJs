@@ -1,22 +1,20 @@
-
 const mongoose = require('mongoose')
+
 const BookingSchema = new mongoose.Schema({
-  origin: String,
-  destination: String,
-  driver: [{
+  driver: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Driver',
-    autopopulate: true
-  }],
-  passenger: [{
+    autopopulate: { maxDepth: 1 }
+  },
+  passenger: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Passenger',
-    autopopulate: true
-  }]
+    autopopulate: { maxDepth: 1 }
+  },
+  origin: String,
+  destination: String
+})
 
-});
-
-BookingSchema.plugin(require('mongoose-autopopulate'));
+BookingSchema.plugin(require('mongoose-autopopulate'))
 
 module.exports = mongoose.model('Booking', BookingSchema)
-
