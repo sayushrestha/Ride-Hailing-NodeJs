@@ -1,4 +1,4 @@
-const flatted = require('flatted')
+
 const {driverService} = require('../services')
 
 const router = require('express').Router()

@@ -22,7 +22,7 @@ content-type: application/json
 POST http://localhost:3000/drivers HTTP/1.1
 content-type: application/json
 
-{"name":"new driver", "location":"kuzguncuk"}
+{"name":"hilal driver", "location":"Levent"}
 ###
 DELETE http://localhost:3000/drivers/65ca0b88fc4cc047dc4a006e HTTP/1.1
 
@@ -39,8 +39,8 @@ POST http://localhost:3000/passengers/65c8e74744d8ec0be6496913/bookings HTTP/1.1
 content-type: application/json
 
 {"driverId": "65ca5821fc586669549c1cc8",
- "origin": "Besiktas", 
- "destination": "Eminonu"}
+ "origin": "Eminonu", 
+ "destination": "Bebek"}
 
 
 ###
@@ -51,3 +51,8 @@ content-type: application/json
 
 {"name": "whyy"}
 
+###
+POST http://localhost:3000/passengers/65c8e74744d8ec0be6496913/bookings HTTP/1.1
+content-type: application/json
+
+{"driverId": "65cb9a6e00133f76c0a9a534", "origin": "Kabatas", "destination": "Pendik"}
