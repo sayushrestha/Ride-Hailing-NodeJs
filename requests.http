@@ -5,7 +5,7 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/passengers/65c8ecf16ad5f18b39f3db58 HTTP/1.1
+GET http://localhost:3000/passengers/65c8e74744d8ec0be6496913 HTTP/1.1
 
 ###
 DELETE http://localhost:3000/passengers/65c8e3d870dad35ee035663f HTTP/1.1
@@ -17,3 +17,27 @@ PATCH http://localhost:3000/passengers/65c8ecf16ad5f18b39f3db58 HTTP/1.1
 content-type: application/json
 
 {"name": "new name4"}
+
+###
+POST http://localhost:3000/drivers HTTP/1.1
+content-type: application/json
+
+{"name":"new driver", "location":"kuzguncuk"}
+###
+DELETE http://localhost:3000/drivers/65ca0b88fc4cc047dc4a006e HTTP/1.1
+
+
+###
+
+GET http://localhost:3000/drivers/65ca5821fc586669549c1cc8 HTTP/1.1
+
+
+
+###
+
+POST http://localhost:3000/passengers/65c8e74744d8ec0be6496913/bookings HTTP/1.1
+content-type: application/json
+
+{"driverId": "65ca5821fc586669549c1cc8",
+ "origin": "Kabatas", 
+ "destination": "Pendik"}

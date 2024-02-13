@@ -20,10 +20,9 @@ class BaseDatabase {
 
   }
 
-
   async find(id) {
     // return this.model.find({ _id: id})
-    return this.model.findById(id)
+    return this.model.findById(id).populate('bookings')
   }
 
   async removeBy(property, value) {
@@ -36,10 +35,6 @@ class BaseDatabase {
    
   }
 
-  async find(id) {
-    const objects = await this.load()
-    return objects.find(o => o.id == id)
-  }
 
   async findBy(property, value) {
     return this.model.find({ [property]: value })

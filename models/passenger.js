@@ -1,35 +1,20 @@
 const Booking = require('./booking')
-const uuid = require('uuid')
 const mongoose = require('mongoose')
 const PassengerSchema = new mongoose.Schema({
   name: String,
   location: String,
-  bookings: []
+  bookings: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'Booking'
+  }]
 });
 
+PassengerSchema.methods.book = async function(driver, origin, destination) {
+  console.log('book', ...arguments)
+  const booking = await Booking.create({driver, passenger:this, origin, destination })
+  this.bookings.push(booking)
+  await this.save()
+  return booking
+}
+
 module.exports = mongoose.model('Passenger', PassengerSchema)
-
-
-// class Passenger {
-//   constructor(id = uuid.v4(), name, location, bookings = []) {
-//     this.id = id
-
-//     this.name = name
-//     this.location = location
-//     this.bookings = bookings
-//   }
-
-//   book(driver, origin, destination) {
-//     const booking = new Booking(driver, this, origin, destination)
-
-//     this.bookings.push(booking)
-
-//     return booking
-//   }
-
-//   static create({id, name, location, bookings}) {
-//     return new Passenger(id, name, location, bookings)
-//   }
-// }
-
-// module.exports = Passenger

@@ -1,10 +1,12 @@
-class Booking {
-  constructor(driver, passenger, origin, destination) {
-    this.driver = driver
-    this.passenger = passenger
-    this.origin = origin
-    this.destination = destination
-  }
-}
 
-module.exports = Booking
+const mongoose = require('mongoose')
+const BookingSchema = new mongoose.Schema({
+  origin: String,
+  destination: String,
+  driver: {},
+  passenger:{},
+
+});
+
+module.exports = mongoose.model('Booking', BookingSchema)
+
