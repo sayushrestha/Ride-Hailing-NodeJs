@@ -1,14 +1,18 @@
 const BaseDatabase = require('./base-database')
 const Passenger = require('../models/passenger')
-const BookingDatabase = require('./booking-database')
+const bookingDatabase = require('./booking-database')
+const driverDatabase = require('./driver-database')
 
 class PassengerDatabase extends BaseDatabase {
   async findByName(name) {
     return this.findBy('name', name)
   }
-  async book(driver, passenger, origin, destination) {
+  async book(driverId, passengerId, origin, destination) {
     console.log('book', ...arguments)
-    const booking = await BookingDatabase.insert({driver, passenger, origin, destination })
+    const passenger = await this.find(passengerId)
+    const driver = await driverDatabase.find(driverId)
+    
+    const booking = await bookingDatabase.insert({driver, passenger, origin, destination })
     passenger.bookings.push(booking)
     await passenger.save()
     return booking

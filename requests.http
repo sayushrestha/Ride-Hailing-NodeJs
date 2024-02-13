@@ -39,8 +39,8 @@ POST http://localhost:3000/passengers/65c8e74744d8ec0be6496913/bookings HTTP/1.1
 content-type: application/json
 
 {"driverId": "65ca5821fc586669549c1cc8",
- "origin": "Bebek", 
- "destination": "Besiktas"}
+ "origin": "Besiktas", 
+ "destination": "Eminonu"}
 
 
 ###
