@@ -14,7 +14,12 @@ router.post('/', async(req, res)=> {
     res.send(driver)
 })
 
+router.get('/young-drivers', async (req, res) => {
 
+    const drivers = await driverService.findYoungDrivers()
+    res.render('drivers', {drivers})
+  })  
+  
 router.delete('/:driverId', async(req, res) => {
     await driverService.removeBy('_id', req.params.driverId)
     res.send('OK')
@@ -34,5 +39,6 @@ router.patch('/:driverId', async (req, res) => {
   
     await driverService.update(driverId, { name })
   })
-  
+
+
 module.exports = router

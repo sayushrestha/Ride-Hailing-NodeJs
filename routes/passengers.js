@@ -11,9 +11,13 @@ router.get('/', async(req, res)=> {
 })
 
 // axios.post('/passengers', { name: "Hilal", location: "Frankfurt"}).then(res=> res.data).then(console.log).catch(console.log)
-router.post('/', async(req, res)=> {
-    const passenger = await passengerService.insert(req.body);
+router.post('/', async(req, res, next)=> {
+    try {
+        const passenger = await passengerService.insert(req.body);
     res.send(passenger)
+    }catch(e) {
+        next(e)
+    }
 })
 
 

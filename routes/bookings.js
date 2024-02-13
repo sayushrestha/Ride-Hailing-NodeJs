@@ -10,9 +10,11 @@ router.get('/', async(req, res)=> {
 
 
 //http://localhost:3000/bookings?driverId=65ca5821fc586669549c1cc8
+
+//http://localhost:3000/bookings/search?origin=Kabatas
 router.get('/search', async(req, res)=> {
     const driverId = req.query.driverId;
-    const bookings = await bookingService.findByDriverId(driverId)
+    const bookings = await bookingService.query(req.query)
     res.render('bookings', {bookings})
 })
 

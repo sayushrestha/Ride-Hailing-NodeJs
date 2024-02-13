@@ -9,6 +9,10 @@ class DriverService extends BaseService {
   async findByLocation(location) {
     return this.findBy('location', location)
   }
+
+  async findYoungDrivers() {
+    return this.query({ age: { $lt: 29 } });
+  }
 }
 
 module.exports = new DriverService(Driver)
