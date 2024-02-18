@@ -53,7 +53,7 @@
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon --ignore '*.json'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -64,5 +64,8 @@
   "bugs": {
     "url": "https://github.com/HilalKocak/Ride-Hailing-NodeJs/issues"
   },
-  "homepage": "https://github.com/HilalKocak/Ride-Hailing-NodeJs#readme"
+  "homepage": "https://github.com/HilalKocak/Ride-Hailing-NodeJs#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
