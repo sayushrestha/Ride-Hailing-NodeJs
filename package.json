@@ -54,7 +54,7 @@
     "start": "node index.js",
     "watch": "nodemon --ignore '*.json'",
     "test": "jest --watch",
-    "test-watch": "jest --w"
+    "test-watch": "jest --verbose --w"
   },
   "repository": {
     "type": "git",
