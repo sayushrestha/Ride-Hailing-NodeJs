@@ -51,8 +51,8 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "watch": "nodemon --ignore '*.json'",
+    "start": "node .bin/www",
+    "watch": "nodemon --ignore '*.json' .bin/www",
     "test": "jest --watch",
     "test-watch": "jest --verbose --w"
   },

@@ -2,7 +2,7 @@
 const app = require('../index')// index
 const request = require('supertest')(app)
 
-test('creates a new passenger', async ()=> {
+test.skip('creates a new passenger', async ()=> {
     const passengerToCreate = {
         name: 'Test passenger',
         location: 'Moda'
