@@ -1,7 +1,3 @@
-const fs = require('fs')
-const flatted = require('flatted')
-const Passenger = require('../models/passenger')
-
 class BaseService {
   constructor(model) {
     this.model = model
@@ -16,29 +12,24 @@ class BaseService {
   }
 
   async insert(object) {
-   return await this.model.create(object)
-
-  }
-
-  async find(id) {
-    // return this.model.find({ _id: id})
-    return this.model.findById(id)
+    return await this.model.create(object)
   }
 
   async removeBy(property, value) {
     return this.model.deleteOne({ [property]: value })
-
   }
 
   async update(id, object) {
     return this.model.findByIdAndUpdate(id, object)
-   
+  }
+
+  async find(id) {
+    return this.model.findById(id)
   }
 
   async query(obj) {
     return this.model.find(obj)
   }
-
 
   async findBy(property, value) {
     return this.model.find({ [property]: value })

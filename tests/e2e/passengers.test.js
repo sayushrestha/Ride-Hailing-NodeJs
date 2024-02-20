@@ -1,5 +1,5 @@
 
-const app = require('../index')// index
+const app = require('../../index')// index
 const request = require('supertest')(app)
 
 test.skip('creates a new passenger', async ()=> {

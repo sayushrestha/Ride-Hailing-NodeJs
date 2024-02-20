@@ -11,7 +11,12 @@ class DriverService extends BaseService {
   }
 
   async findYoungDrivers() {
-    return this.query({ age: { $lt: 29 } });
+    return this.query({
+      age: {
+        $lt: 30,
+        $gte: 18
+      }
+    })
   }
 }
 

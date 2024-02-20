@@ -1,5 +1,5 @@
-const Booking = require('./booking')
 const mongoose = require('mongoose')
+
 const PassengerSchema = new mongoose.Schema({
   name: { type: String, required: true, minlength: 2 },
   location: String,
@@ -10,7 +10,6 @@ const PassengerSchema = new mongoose.Schema({
   }]
 })
 
-
-PassengerSchema.plugin(require('mongoose-autopopulate'));
+PassengerSchema.plugin(require('mongoose-autopopulate'))
 
 module.exports = mongoose.model('Passenger', PassengerSchema)
