@@ -54,7 +54,7 @@
     "start": "node .bin/www",
     "watch": "nodemon --ignore '*.json' .bin/www",
     "test": "jest --watch",
-    "test-watch": "jest --verbose --w"
+    "test-watch": "jest --coverage --verbose --w"
   },
   "repository": {
     "type": "git",

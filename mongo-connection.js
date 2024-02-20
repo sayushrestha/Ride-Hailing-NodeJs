@@ -4,5 +4,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/test');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', function () {
-  console.log('we are connected to mongodb!')
+  // console.log('we are connected to mongodb!')
 })
+
+
