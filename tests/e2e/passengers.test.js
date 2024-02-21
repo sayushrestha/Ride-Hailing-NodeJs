@@ -3,7 +3,7 @@ const request = require('supertest')(app);
 let passengerId;
 
 describe('Passenger operations', () => {
-    it('should create a new passenger and update it', async () => {
+    it('should create a new passenger', async () => {
         // Create a new passenger
         const passengerToCreate = {
             name: 'Test Passenger',
@@ -56,6 +56,18 @@ describe('Passenger operations', () => {
       expect(response.status).toBe(200);
     });
     
+    it('should handle errors in creating a new passenger', async () => {
+      const passengerToCreate = {
+          location: 'Moda' // Missing 'name' field
+      };
+
+      const createResponse = await request
+          .post('/passengers')
+          .send(passengerToCreate)
+          .expect(500); // Expecting a server error due to missing 'name' field
+  
+    
+  });
   
     
 });

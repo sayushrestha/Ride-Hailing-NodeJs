@@ -1,43 +1,34 @@
-const app = require('../..')
-const request = require('supertest')(app)
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb://127.0.0.1:27017/test');
+const app = require('../..');
+const request = require('supertest')(app);
+const bookingService = require('../../services/booking-service');
+const passengerToCreate = {
+  name: 'Test passenger',
+  location: 'Moda'
+};
 
-// var db = mongoose.connection;
+const driverToCreate = {
+  name: 'Test driver',
+  location: 'Moda',
+  age: 18
+};
 
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function () {
-//   console.log('we are connected to mongodb!'); // Buraya taşındı
-// });
+test('creates a new booking and finds bookings by passenger ID', async () => {
 
-
-test('creates a new booking', async () => {
-  const passengerToCreate = {
-    name: 'Test passenger',
-    location: 'Moda'
-  }
-
-  const driverToCreate = {
-    name: 'Test driver',
-    location: 'Moda',
-    age: 18
-  }
-
-  const origin = 'Moda'
-  const destination = 'Bostanci'
+  const origin = 'Moda';
+  const destination = 'Bostanci';
 
   const passengerResponse = await request
     .post('/passengers')
     .send(passengerToCreate)
-    .expect(200)
+    .expect(200);
 
   const driverResponse = await request
     .post('/drivers')
     .send(driverToCreate)
-    .expect(200)
+    .expect(200);
 
-  console.log('request', `/passengers/${passengerResponse.body._id}/bookings`)
-  
+  console.log('request', `/passengers/${passengerResponse.body._id}/bookings`);
+
   const bookingResponse = await request
     .post(`/passengers/${passengerResponse.body._id}/bookings`)
     .send({
@@ -45,22 +36,39 @@ test('creates a new booking', async () => {
       origin,
       destination
     })
-    .expect(200)
-  
+    .expect(200);
 
-  const bookingCreated = bookingResponse.body
+  const bookingCreated = bookingResponse.body;
 
   expect(bookingCreated).toMatchObject({
     driver: driverResponse.body,
     passenger: passengerResponse.body,
     origin,
     destination
-  })
+  });
 
-  
-})
+  const passengerId = passengerResponse.body._id;
+  const bookings = await bookingService.findByPassengerId(passengerId);
+
+  expect(bookings).toBeDefined();
+});
 
 
-// afterAll(async () => {
-//     await db.close();
-//   });
+test('should find bookings by driver ID', async () => {
+
+  const driverResponse = await request
+    .post('/drivers')
+    .send(driverToCreate)
+    .expect(200);
+
+  const passengerResponse = await request
+    .post('/passengers')
+    .send(passengerToCreate)
+    .expect(200);
+
+  const driverId = driverResponse.body._id; 
+  const bookings = await bookingService.findByDriverId(driverId);
+
+  expect(bookings).toBeDefined();
+
+});
