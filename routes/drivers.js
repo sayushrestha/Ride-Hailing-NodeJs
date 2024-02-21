@@ -32,11 +32,15 @@ router.get('/:driverId', async (req, res) => {
   res.render('driver', { driver })
 })
 
-router.patch('/:driverId', async (req, res) => {
-  const { driverId } = req.params
-  const { name } = req.body
 
-  await driverService.update(driverId, { name })
-})
+
+router.patch('/:driverId', async (req, res) => {
+    const driverId = req.params.bookId;
+    const { name } = req.body;
+  
+    await driverService.update(driverId, { name });
+    res.send('Updated!');
+  });
+
 
 module.exports = router

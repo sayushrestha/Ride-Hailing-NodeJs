@@ -21,8 +21,35 @@ describe('Driver routes', () => {
     expect(response.status).toBe(200);
   });
 
-  it('should delete a driver', async () => {
-    const response = await request.delete(`/drivers/${newDriverId}`);
-    expect(response.status).toBe(200);
-  });
+
+
+  // Young drivers route test
+it('should get young drivers', async () => {
+  const response = await request.get('/drivers/young-drivers');
+  expect(response.status).toBe(200);
+ 
+});
+
+// Single driver route test
+it('should get a single driver', async () => {
+  const response = await request.get(`/drivers/${newDriverId}`);
+  expect(response.status).toBe(200);
+ 
+});
+
+// Update driver route test
+it('should update a driver', async () => {
+  const updatedDriver = { name: 'Updated Driver Name' }; 
+  const response = await request.patch(`/drivers/${newDriverId}`).send(updatedDriver);
+  expect(response.status).toBe(200);
+ 
+});
+
+
+it('should delete a driver', async () => {
+  const response = await request.delete(`/drivers/${newDriverId}`);
+  expect(response.status).toBe(200);
+});
+
+
 });

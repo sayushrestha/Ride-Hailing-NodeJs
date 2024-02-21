@@ -36,14 +36,22 @@ router.post('/:passengerId/bookings', async (req, res) => {
 
   const booking = await bookingService.book(driverId, passengerId, origin, destination)
 
-  res.send(booking)
+  res.status(200).send(booking)
 })
 
 router.patch('/:passengerId', async (req, res) => {
-  const { passengerId } = req.params
-  const { name } = req.body
+    const { passengerId } = req.params;
+    const { name } = req.body;
 
-  await passengerService.update(passengerId, { name })
-})
+ 
+    await passengerService.update(passengerId, { name });
+    const passenger = await passengerService.find(passengerId)
+
+  
+    res.status(200).send(passenger); 
+});
+
+
+
 
 module.exports = router
