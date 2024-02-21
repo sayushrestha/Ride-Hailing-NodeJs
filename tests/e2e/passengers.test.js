@@ -50,6 +50,15 @@ describe('Passenger operations', () => {
      
     });
     
+    it('should return 404 if passenger not found', async () => {
+      const invalidPassengerId = '65c8e74744d8ec0be6496919'; 
+    
+      const response = await request.get(`/passengers/${invalidPassengerId}`);
+    
+      expect(response.status).toBe(404);
+      expect(response.text).toBe('Cannot find passenger');
+    });
+    
 
     it('should delete a passenger', async () => {
       const response = await request.delete(`/passengers/${passengerId}`);

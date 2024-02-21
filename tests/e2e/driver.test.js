@@ -65,6 +65,12 @@ it('should find drivers by location', async () => {
   });
 });
 
+it('should return 404 if driver not found', async () => {
+  const invalidDriverId = '65ca5821fc586669549c1cc0'; 
+  const response = await request.get(`/drivers/${invalidDriverId}`);
+  expect(response.status).toBe(404);
+  expect(response.text).toBe('Cannot find driver');
+});
 
 it('should delete a driver', async () => {
   const response = await request.delete(`/drivers/${newDriverId}`);
