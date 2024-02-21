@@ -45,6 +45,26 @@ it('should update a driver', async () => {
  
 });
 
+// Find driver by name test
+it('should find a driver by name', async () => {
+  const driverName = 'Updated Driver Name'; 
+  const response = await request.get(`/drivers/find-by-name/${driverName}`);
+  expect(response.status).toBe(200);
+  response.body.forEach(driver => {
+    expect(driver.name).toBe(driverName);
+  });
+});
+
+// Find driver by location test
+it('should find drivers by location', async () => {
+  const driverLocation = 'Test Location 2'; 
+  const response = await request.get(`/drivers/find-by-location/${driverLocation}`);
+  expect(response.status).toBe(200);
+  response.body.forEach(driver => {
+    expect(driver.location).toBe(driverLocation);
+  });
+});
+
 
 it('should delete a driver', async () => {
   const response = await request.delete(`/drivers/${newDriverId}`);

@@ -43,4 +43,17 @@ router.patch('/:driverId', async (req, res) => {
   });
 
 
+router.get('/find-by-name/:name', async (req, res) => {
+    const { name } = req.params;
+    const drivers = await driverService.findByDriverName(name);
+    res.send(drivers);
+  });
+  
+ 
+  router.get('/find-by-location/:location', async (req, res) => {
+    const { location } = req.params;
+    const drivers = await driverService.findByLocation(location);
+    res.send(drivers);
+  });
+  
 module.exports = router
