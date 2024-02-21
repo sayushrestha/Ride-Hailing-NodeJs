@@ -7,9 +7,14 @@ block content
         each booking in bookings
             li
                 p Passenger:
-                    a(href=`/passengers/${booking.passenger.id}`)= booking.passenger.name
+                    - if (booking.passenger)
+                        a(href=`/passengers/${booking.passenger._id}`)= booking.passenger.name
+                    - else
+                        | No passenger assigned
                 p Driver:
-                    a(href=`/drivers/${booking.driver.id}`)= booking.driver.name
+                    - if (booking.driver)
+                        a(href=`/drivers/${booking.driver._id}`)= booking.driver.name
+                    - else
+                        | No driver assigned
                 p Origin: #{booking.origin}
                 p Destination: #{booking.destination}
-

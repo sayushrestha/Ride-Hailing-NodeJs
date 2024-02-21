@@ -3,11 +3,13 @@ const {bookingService} = require('../services')
 
 const router = require('express').Router()
 
+
 router.get('/', async(req, res)=> {
     const bookings = await bookingService.load()
-    res.render('bookings', {bookings}) // res.render
+     res.json(bookings); 
+     res.render('bookings', {bookings});
+    
 })
-
 
 //http://localhost:3000/bookings?driverId=65ca5821fc586669549c1cc8
 

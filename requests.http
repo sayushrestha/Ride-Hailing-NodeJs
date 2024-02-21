@@ -56,3 +56,10 @@ POST http://localhost:3000/passengers/65c8e74744d8ec0be6496913/bookings HTTP/1.1
 content-type: application/json
 
 {"driverId": "65cb9a6e00133f76c0a9a534", "origin": "Kabatas", "destination": "Pendik"}
+
+
+
+###
+
+GET http://localhost:3000/bookings HTTP/1.1
+
