@@ -51,7 +51,13 @@ router.patch('/:passengerId', async (req, res) => {
     res.status(200).send(passenger); 
 });
 
+router.get('/find-by-name/:name', async (req, res) => {
 
+      const { name } = req.params;
+      const passengers = await passengerService.findByName(name);
+      res.send(passengers);
+   
+  });
 
 
 module.exports = router

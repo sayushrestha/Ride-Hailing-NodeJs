@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1708533265128" clover="3.2.0">
-  <project timestamp="1708533265128" name="All files">
-    <metrics statements="150" coveredstatements="147" conditionals="9" coveredconditionals="6" methods="36" coveredmethods="34" elements="195" coveredelements="187" complexity="0" loc="150" ncloc="150" packages="5" files="15" classes="15"/>
+<coverage generated="1708541504509" clover="3.2.0">
+  <project timestamp="1708541504509" name="All files">
+    <metrics statements="154" coveredstatements="153" conditionals="9" coveredconditionals="6" methods="37" coveredmethods="37" elements="200" coveredelements="196" complexity="0" loc="154" ncloc="154" packages="5" files="15" classes="15"/>
     <package name="NodeJs">
       <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="index.js" path="/Users/hilalkocak/projects/WEB-ADVENTURE/NodeJs/index.js">
@@ -67,7 +67,7 @@
       </file>
     </package>
     <package name="NodeJs.routes">
-      <metrics statements="76" coveredstatements="76" conditionals="4" coveredconditionals="2" methods="17" coveredmethods="17"/>
+      <metrics statements="80" coveredstatements="80" conditionals="4" coveredconditionals="2" methods="18" coveredmethods="18"/>
       <file name="bookings.js" path="/Users/hilalkocak/projects/WEB-ADVENTURE/NodeJs/routes/bookings.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="5" type="stmt"/>
@@ -125,7 +125,7 @@
         <line num="7" count="5" type="stmt"/>
       </file>
       <file name="passengers.js" path="/Users/hilalkocak/projects/WEB-ADVENTURE/NodeJs/routes/passengers.js">
-        <metrics statements="29" coveredstatements="29" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="6"/>
+        <metrics statements="33" coveredstatements="33" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="7"/>
         <line num="1" count="5" type="stmt"/>
         <line num="3" count="5" type="stmt"/>
         <line num="5" count="5" type="stmt"/>
@@ -154,23 +154,27 @@
         <line num="47" count="1" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
-        <line num="57" count="5" type="stmt"/>
+        <line num="54" count="5" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="63" count="5" type="stmt"/>
       </file>
     </package>
     <package name="NodeJs.services">
-      <metrics statements="37" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="14"/>
+      <metrics statements="37" coveredstatements="37" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="16"/>
       <file name="base-service.js" path="/Users/hilalkocak/projects/WEB-ADVENTURE/NodeJs/services/base-service.js">
-        <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="8"/>
-        <line num="3" count="15" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
+        <line num="3" count="16" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
         <line num="15" count="8" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="27" count="5" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="39" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
       </file>
       <file name="booking-service.js" path="/Users/hilalkocak/projects/WEB-ADVENTURE/NodeJs/services/booking-service.js">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -205,10 +209,10 @@
         <line num="5" count="5" type="stmt"/>
       </file>
       <file name="passenger-service.js" path="/Users/hilalkocak/projects/WEB-ADVENTURE/NodeJs/services/passenger-service.js">
-        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
         <line num="10" count="5" type="stmt"/>
       </file>
     </package>

@@ -68,6 +68,20 @@ describe('Passenger operations', () => {
   
     
   });
+
+  test('should find passengers by name', async () => {
+    const passengerName = 'Test Passenger';
+    
+    const response = await request.get(`/passengers/find-by-name/${passengerName}`);
   
+    expect(response.status).toBe(200);
+    
+    response.body.forEach(passenger => {
+      expect(passenger.name).toBe(passengerName);
+    });
+  });
+  
+
+
     
 });
