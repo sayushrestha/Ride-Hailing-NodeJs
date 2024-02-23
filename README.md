@@ -7,3 +7,6 @@
 - **Axios** is used to make requests from frontend to backend
 - **MongoDB** is used for database management
 - **Jest** is used for testing (Unit Test and E2E Api Testing)
+
+- These are tests:
+![tests](test-preview.png)
