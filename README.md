@@ -1,5 +1,28 @@
 ### Ride Hailing: A taxi booking web application
 
+#### Installation and Setup Instructions
+To clone the project run;
+```
+https://github.com/HilalKocak/Ride-Hailing-NodeJs.git
+```
+
+To install dependencies run:
+```
+npm install
+npm i --save jest
+```
+
+To run in localhost:
+```
+node index.js
+```
+
+To run tests:
+```
+npm run --coverage test-watch
+```
+#### Technologies
+
 - **Puml** used to design uml diagrams of app's services
 ![puml](classdiagram.png)
 
