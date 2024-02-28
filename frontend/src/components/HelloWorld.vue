@@ -1,4 +1,5 @@
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HelloWorld',
   props: {
@@ -6,12 +7,15 @@ export default {
   },
   data (){
     return {
-      count : 5 // initial local state
+     
     }
   },
   methods : {
     increment () { this.count++ },
     decrement () { this.count-- }
+  },
+  computed : {
+    ...mapState(['count'])
   }
 }
 </script>
