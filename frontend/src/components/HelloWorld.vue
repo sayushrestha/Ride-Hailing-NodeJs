@@ -4,6 +4,8 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String,
+    type: String,
+    count: Number
   },
   data (){
     return {
@@ -16,7 +18,7 @@ export default {
     // decrement () { this.count-- }
   },
   computed : {
-    ...mapState(['count']),
+
     upperCaseMsg() {
       return this.msg.toUpperCase()
     },
@@ -29,8 +31,8 @@ export default {
   .hello 
     p {{ upperCaseMsg }}
   .counter {{ count }}
-  button.increment(@click="increment") Increment 
-  button.decrement(@click="decrement") Decrement 
+  button.increment(@click="increment(type)") Increment 
+  button.decrement(@click="decrement(type)") Decrement 
 </template>
 
 

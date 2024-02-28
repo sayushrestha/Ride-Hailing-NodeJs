@@ -5,24 +5,26 @@ const Mutations = {
 }
 export default createStore({
   state: {
-    count: 5
+    countHome: 0,
+    countAbout: 0
   },
   getters: {
   },
   mutations: {
-    [Mutations.INCREMENT] (state) {
-      state.count++
+    [Mutations.INCREMENT] (state, type) {
+      type === 'countHome' ? state.countHome++ : state.countAbout++
     },
-    [Mutations.DECREMENT] (state) {
-      state.count--
+    [Mutations.DECREMENT] (state, type) {
+      if(state.count === 0) return
+      type === 'countHome' ? state.countHome-- : state.countAbout--
     }
   },
   actions: {
-    increment({commit}){
-      commit(Mutations.INCREMENT)
+    increment({commit}, type){
+      commit(Mutations.INCREMENT, type)
     },
-    decrement({commit}){
-      commit(Mutations.DECREMENT)
+    decrement({commit}, type){
+      commit(Mutations.DECREMENT, type)
     }
   }
 })
