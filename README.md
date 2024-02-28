@@ -11,6 +11,8 @@ To install dependencies run:
 npm install
 npm i --save jest
 npm install -g @vue/cli
+npm install pug-plain-loader pug --save-dev
+
 ```
 
 To run in localhost:
