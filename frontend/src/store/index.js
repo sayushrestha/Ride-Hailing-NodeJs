@@ -1,5 +1,8 @@
 import { createStore } from 'vuex'
-
+const Mutations = {
+  INCREMENT: 'INCREMENT',
+  DECREMENT: 'DECREMENT'
+}
 export default createStore({
   state: {
     count: 5
@@ -7,19 +10,19 @@ export default createStore({
   getters: {
   },
   mutations: {
-    INCREMENT (state) {
+    [Mutations.INCREMENT] (state) {
       state.count++
     },
-    DECREMENT (state) {
+    [Mutations.DECREMENT] (state) {
       state.count--
     }
   },
   actions: {
     increment({commit}){
-      commit('INCREMENT')
+      commit(Mutations.INCREMENT)
     },
     decrement({commit}){
-      commit('DECREMENT')
+      commit(Mutations.DECREMENT)
     }
   }
 })
