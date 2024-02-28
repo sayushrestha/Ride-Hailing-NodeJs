@@ -1,5 +1,5 @@
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'HelloWorld',
   props: {
@@ -11,18 +11,23 @@ export default {
     }
   },
   methods : {
-    increment () { this.count++ },
-    decrement () { this.count-- }
+    ...mapActions(['increment', 'decrement']),
+    // increment () { this.count++ },
+    // decrement () { this.count-- }
   },
   computed : {
-    ...mapState(['count'])
+    ...mapState(['count']),
+    upperCaseMsg() {
+      return this.msg.toUpperCase()
+    },
+    
   }
 }
 </script>
 
 <template lang="pug">
   .hello 
-    p {{ msg }}
+    p {{ upperCaseMsg }}
   .counter {{ count }}
   button.increment(@click="increment") Increment 
   button.decrement(@click="decrement") Decrement 

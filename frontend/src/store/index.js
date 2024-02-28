@@ -7,7 +7,19 @@ export default createStore({
   getters: {
   },
   mutations: {
+    INCREMENT (state) {
+      state.count++
+    },
+    DECREMENT (state) {
+      state.count--
+    }
   },
   actions: {
+    increment({commit}){
+      commit('INCREMENT')
+    },
+    decrement({commit}){
+      commit('DECREMENT')
+    }
   }
 })
