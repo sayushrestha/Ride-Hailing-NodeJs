@@ -4,8 +4,10 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import { mapState } from 'vuex'
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      passengers: [{name:'Hilal'}, {name:'Ayse'}]
+    }
   },
   computed : {
     ...mapState(['countHome']),
@@ -13,10 +15,12 @@ export default {
 }
 </script>
 
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld type="countHome" :count="countHome" msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  .home 
+    h1 Passengers
+    .passenger(v-for="passenger in passengers")
+      | {{ passenger.name }}
+
+   
 </template>
 
