@@ -25,6 +25,11 @@ export default createStore({
     },
     decrement({commit}, type){
       commit(Mutations.DECREMENT, type)
+    },
+    async fetchPassengers(){
+      // Örnek bir asenkron işlem
+      return Promise.resolve([{name: "Hilla", id: 1}, {name:"Afe", id: 2}]);
     }
+    
   }
 })
