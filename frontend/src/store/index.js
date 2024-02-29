@@ -27,8 +27,7 @@ export default createStore({
       commit(Mutations.DECREMENT, type)
     },
     async fetchPassengers(){
-      // Örnek bir asenkron işlem
-      return Promise.resolve([{name: "Hilla", id: 1}, {name:"Afe", id: 2}]);
+      return ([{name: "Hilla", id: 1}, {name:"Afe", id: 2}]);
     }
     
   }
