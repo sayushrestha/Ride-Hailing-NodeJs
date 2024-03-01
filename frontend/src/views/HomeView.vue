@@ -26,7 +26,7 @@ export default {
     p There are {{ passengers.length}} passengers waiting
     ol 
     li(v-for="passenger in passengers" :key="passenger.id")
-      a(:href="`/passengers/${passenger.id}`") {{ passenger.name }}
+      a(:href="`/passengers/${passenger._id}`") {{ passenger.name }}
 
    
 </template>

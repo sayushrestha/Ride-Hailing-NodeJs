@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
 const Mutations = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT'
@@ -27,7 +28,8 @@ export default createStore({
       commit(Mutations.DECREMENT, type)
     },
     async fetchPassengers(){
-      return ([{name: "Hilla", id: 1}, {name:"Afe", id: 2}]);
+      const request = await axios.get('http://localhost:3000/passengers/')
+      return request.data
     }
     
   }

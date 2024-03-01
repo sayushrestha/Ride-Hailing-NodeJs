@@ -1,11 +1,17 @@
+const { json } = require('body-parser')
 const { passengerService, bookingService } = require('../services')
 
 const router = require('express').Router()
 
 router.get('/', async (req, res) => {
   const passengers = await passengerService.load()
-
-  res.render('passengers', { passengers })
+  const type = req.query.type || 'html'
+  if(type == 'json'){
+    res.send(passengers)
+  }else{//http://localhost:3000/passengers?type=html
+    res.render('passengers', { passengers })
+  }
+  
 })
 
 router.post('/', async (req, res, next) => {
