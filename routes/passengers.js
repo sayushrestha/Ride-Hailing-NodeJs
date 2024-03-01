@@ -40,7 +40,7 @@ router.post('/:passengerId/bookings', async (req, res) => {
     destination
   )
 
-  res.status(200).send(booking)
+  res.send(booking)
 })
 
 router.patch('/:passengerId', async (req, res) => {

@@ -41,5 +41,13 @@ export default createStore({
       const request = await axios.get('/drivers')
       return request.data
     },
+    async bookDriver(ctx, { passengerId, driverId, origin, destination }) {
+      const response = await axios.post(`/passengers/${passengerId}/bookings`, {
+        driverId,
+        origin,
+        destination,
+      })
+      return response.data
+    },
   },
 })

@@ -15,10 +15,13 @@ export default {
     this.isLoading = false
   },
   methods: {
-    ...mapActions(['fetchPassenger', 'fetchDrivers']),
-    bookDriver(driverId) {
-      alert(driverId)
-    },
+    ...mapActions(['fetchPassenger', 'fetchDrivers', 'bookDriver']),
+    bookDriverAndUpdatePassenger({
+      driverId,
+      passengerId,
+      origin,
+      destination,
+    }) {},
   },
 }
 </script>
@@ -44,6 +47,6 @@ export default {
      ol
      li(v-for="driver in drivers")
         | {{ driver.name }} is waiting at {{ driver.location }}
-        button.book(@click="bookDriver(driver._id)") Book Driver
+        button.book(@click="bookDriver({driverId:driver._id, passengerId: passenger._id, origin: passenger.location, destination:'Kadikoy'} )") Book Driver
 
 </template>
