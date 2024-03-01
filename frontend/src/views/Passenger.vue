@@ -1,10 +1,10 @@
 <script>
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'PassengerView',
   data() {
     return {
-      passenger: {},
+      // passenger: {},
       drivers: [],
       isLoading: true,
     }
@@ -22,6 +22,9 @@ export default {
       origin,
       destination,
     }) {},
+  },
+  computed: {
+    ...mapState(['passenger']),
   },
 }
 </script>

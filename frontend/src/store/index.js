@@ -11,6 +11,7 @@ export default createStore({
   state: {
     countHome: 0,
     countAbout: 0,
+    passenger: {},
   },
   getters: {},
   mutations: {
@@ -33,20 +34,26 @@ export default createStore({
       const request = await axios.get('/passengers')
       return request.data
     },
-    async fetchPassenger(ctx, passengerId) {
+    async fetchPassenger({ state }, passengerId) {
       const request = await axios.get(`/passengers/${passengerId}`)
-      return request.data
+      state.passenger = request.data
+      // return request.data
     },
     async fetchDrivers() {
       const request = await axios.get('/drivers')
       return request.data
     },
-    async bookDriver(ctx, { passengerId, driverId, origin, destination }) {
+    async bookDriver(
+      { dispatch },
+      { passengerId, driverId, origin, destination }
+    ) {
       const response = await axios.post(`/passengers/${passengerId}/bookings`, {
         driverId,
         origin,
         destination,
       })
+
+      await dispatch('fetchPassenger', passengerId)
       return response.data
     },
   },
