@@ -16,6 +16,9 @@ export default {
   },
   methods: {
     ...mapActions(['fetchPassenger', 'fetchDrivers']),
+    bookDriver(driverId) {
+      alert(driverId)
+    },
   },
 }
 </script>
@@ -36,13 +39,11 @@ export default {
     p(v-else) No bookings
 
     h2 Create New Booking 
-    div(v-if="passenger.bookings.length")
+    div(v-if="drivers.length")
      h3 Drivers 
-       ol
-       li(v-for="driver in drivers")
-          | From {{ driver.name }} is waiting at {{ driver.location }}
-          button.book Book Driver
-
-
+     ol
+     li(v-for="driver in drivers")
+        | {{ driver.name }} is waiting at {{ driver.location }}
+        button.book(@click="bookDriver(driver._id)") Book Driver
 
 </template>

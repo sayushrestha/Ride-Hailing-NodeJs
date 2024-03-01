@@ -30,7 +30,7 @@ export default createStore({
       commit(Mutations.DECREMENT, type)
     },
     async fetchPassengers() {
-      const request = await axios.get('/passengers/')
+      const request = await axios.get('/passengers')
       return request.data
     },
     async fetchPassenger(ctx, passengerId) {
@@ -38,7 +38,7 @@ export default createStore({
       return request.data
     },
     async fetchDrivers() {
-      const request = await axios.get('/drivers/')
+      const request = await axios.get('/drivers')
       return request.data
     },
   },
