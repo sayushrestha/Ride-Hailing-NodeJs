@@ -1,32 +1,32 @@
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex';
 export default {
   name: 'PassengerView',
   data() {
     return {
-      // passenger: {},
+      passenger: {},
       drivers: [],
       isLoading: true,
-    }
+      destination: 'Kartal'
+    };
   },
   async mounted() {
-    this.passenger = await this.fetchPassenger(this.$route.params.passengerId)
-    this.drivers = await this.fetchDrivers()
-    this.isLoading = false
+    await this.updatePassenger()
+    this.passenger = await this.fetchPassenger(this.$route.params.passengerId);
+    this.drivers = await this.fetchDrivers();
+    this.isLoading = false;
   },
   methods: {
     ...mapActions(['fetchPassenger', 'fetchDrivers', 'bookDriver']),
-    bookDriverAndUpdatePassenger({
-      driverId,
-      passengerId,
-      origin,
-      destination,
-    }) {},
+    async bookDriverAndUpdatePassenger({driverId, passengerId, origin, destination}) {
+      await this.bookDriver({driverId, passengerId, origin, destination});
+      this.updatePassenger()
+    },
+    async updatePassenger(){
+      this.passenger = await this.fetchPassenger(this.$route.params.passengerId);
+    }
   },
-  computed: {
-    ...mapState(['passenger']),
-  },
-}
+};
 </script>
 
 <template lang="pug">
@@ -45,11 +45,13 @@ export default {
     p(v-else) No bookings
 
     h2 Create New Booking 
+    p Destination 
+    input(v-model="destination")
     div(v-if="drivers.length")
      h3 Drivers 
      ol
      li(v-for="driver in drivers")
         | {{ driver.name }} is waiting at {{ driver.location }}
-        button.book(@click="bookDriver({driverId:driver._id, passengerId: passenger._id, origin: passenger.location, destination:'Kadikoy'} )") Book Driver
+        button.book(@click="bookDriverAndUpdatePassenger({driverId:driver._id, passengerId: passenger._id, origin: passenger.location, destination} )") Book Driver
 
 </template>
