@@ -24,8 +24,17 @@ export default {
     },
     async updatePassenger(){
       this.passenger = await this.fetchPassenger(this.$route.params.passengerId);
-    }
+    },
+
   },
+  watch: {
+    destination(value){
+      console.log("destination updated", value)
+    },
+    'passenger.bookings'(value){
+      console.log("bookings updated", value)
+    }
+  }
 };
 </script>
 
@@ -45,7 +54,7 @@ export default {
     p(v-else) No bookings
 
     h2 Create New Booking 
-    p Destination 
+    p Destination:
     input(v-model="destination")
     div(v-if="drivers.length")
      h3 Drivers 
