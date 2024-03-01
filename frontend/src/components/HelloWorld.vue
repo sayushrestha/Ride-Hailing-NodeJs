@@ -5,37 +5,31 @@ export default {
   props: {
     msg: String,
     type: String,
-    count: Number
+    count: Number,
   },
-  data (){
-    return {
-     
-    }
+  data() {
+    return {}
   },
-  methods : {
+  methods: {
     ...mapActions(['increment', 'decrement']),
     // increment () { this.count++ },
     // decrement () { this.count-- }
   },
-  computed : {
-
+  computed: {
     upperCaseMsg() {
       return this.msg.toUpperCase()
     },
-    
-  }
+  },
 }
 </script>
 
 <template lang="pug">
-  .hello 
-    p {{ upperCaseMsg }}
-  .counter {{ count }}
-  button.increment(@click="increment(type)") Increment 
-  button.decrement(@click="decrement(type)") Decrement 
+.hello 
+  p {{ upperCaseMsg }}
+.counter {{ count }}
+button.increment(@click="increment(type)") Increment 
+button.decrement(@click="decrement(type)") Decrement 
 </template>
-
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">

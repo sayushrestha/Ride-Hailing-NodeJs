@@ -5,35 +5,37 @@ axios.defaults.baseURL = 'http://localhost:3000'
 
 const Mutations = {
   INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT'
+  DECREMENT: 'DECREMENT',
 }
 export default createStore({
   state: {
     countHome: 0,
-    countAbout: 0
+    countAbout: 0,
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
-    [Mutations.INCREMENT] (state, type) {
+    [Mutations.INCREMENT](state, type) {
       type === 'countHome' ? state.countHome++ : state.countAbout++
     },
-    [Mutations.DECREMENT] (state, type) {
-      if(state.count === 0) return
+    [Mutations.DECREMENT](state, type) {
+      if (state.count === 0) return
       type === 'countHome' ? state.countHome-- : state.countAbout--
-    }
+    },
   },
   actions: {
-    increment({commit}, type){
+    increment({ commit }, type) {
       commit(Mutations.INCREMENT, type)
     },
-    decrement({commit}, type){
+    decrement({ commit }, type) {
       commit(Mutations.DECREMENT, type)
     },
-    async fetchPassengers(){
+    async fetchPassengers() {
       const request = await axios.get('/passengers/')
       return request.data
-    }
-    
-  }
+    },
+    async fetchPassenger(ctx, passengerId) {
+      const request = await axios.get(`/passengers/${passengerId}`)
+      return request.data
+    },
+  },
 })

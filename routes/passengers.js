@@ -4,14 +4,14 @@ const { passengerService, bookingService } = require('../services')
 const router = require('express').Router()
 
 router.get('/', async (req, res) => {
-    res.send(await passengerService.load())
+  res.send(await passengerService.load())
 })
 
 router.post('/', async (req, res, next) => {
   try {
     const passenger = await passengerService.insert(req.body)
     res.send(passenger)
-  } catch(e) {
+  } catch (e) {
     next(e)
   }
 })
@@ -25,38 +25,38 @@ router.delete('/:passengerId', async (req, res) => {
 router.get('/:passengerId', async (req, res) => {
   const passenger = await passengerService.find(req.params.passengerId)
 
-  if (!passenger) return res.status(404).send('Cannot find passenger')
-  res.render('passenger', { passenger })
+  if (!passenger) return res.status(404)
+  res.send(passenger)
 })
 
 router.post('/:passengerId/bookings', async (req, res) => {
   const { passengerId } = req.params
   const { driverId, origin, destination } = req.body
 
-  const booking = await bookingService.book(driverId, passengerId, origin, destination)
+  const booking = await bookingService.book(
+    driverId,
+    passengerId,
+    origin,
+    destination
+  )
 
   res.status(200).send(booking)
 })
 
 router.patch('/:passengerId', async (req, res) => {
-    const { passengerId } = req.params;
-    const { name } = req.body;
+  const { passengerId } = req.params
+  const { name } = req.body
 
- 
-    await passengerService.update(passengerId, { name });
-    const passenger = await passengerService.find(passengerId)
+  await passengerService.update(passengerId, { name })
+  const passenger = await passengerService.find(passengerId)
 
-  
-    res.status(200).send(passenger); 
-});
+  res.status(200).send(passenger)
+})
 
 router.get('/find-by-name/:name', async (req, res) => {
-
-      const { name } = req.params;
-      const passengers = await passengerService.findByName(name);
-      res.send(passengers);
-   
-  });
-
+  const { name } = req.params
+  const passengers = await passengerService.findByName(name)
+  res.send(passengers)
+})
 
 module.exports = router
