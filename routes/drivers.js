@@ -3,14 +3,11 @@ const { driverService } = require('../services')
 const router = require('express').Router()
 
 router.get('/', async (req, res) => {
-  const drivers = await driverService.load()
-
-  res.render('drivers', { drivers })
+  res.send(await driverService.load())
 })
 
 router.post('/', async (req, res) => {
   const driver = await driverService.insert(req.body)
-
   res.send(driver)
 })
 
@@ -32,28 +29,24 @@ router.get('/:driverId', async (req, res) => {
   res.render('driver', { driver })
 })
 
-
-
 router.patch('/:driverId', async (req, res) => {
-    const driverId = req.params.bookId;
-    const { name } = req.body;
-  
-    await driverService.update(driverId, { name });
-    res.send('Updated!');
-  });
+  const driverId = req.params.bookId
+  const { name } = req.body
 
+  await driverService.update(driverId, { name })
+  res.send('Updated!')
+})
 
 router.get('/find-by-name/:name', async (req, res) => {
-    const { name } = req.params;
-    const drivers = await driverService.findByDriverName(name);
-    res.send(drivers);
-  });
-  
- 
-  router.get('/find-by-location/:location', async (req, res) => {
-    const { location } = req.params;
-    const drivers = await driverService.findByLocation(location);
-    res.send(drivers);
-  });
-  
+  const { name } = req.params
+  const drivers = await driverService.findByDriverName(name)
+  res.send(drivers)
+})
+
+router.get('/find-by-location/:location', async (req, res) => {
+  const { location } = req.params
+  const drivers = await driverService.findByLocation(location)
+  res.send(drivers)
+})
+
 module.exports = router

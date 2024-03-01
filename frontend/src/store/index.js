@@ -37,5 +37,9 @@ export default createStore({
       const request = await axios.get(`/passengers/${passengerId}`)
       return request.data
     },
+    async fetchDrivers() {
+      const request = await axios.get('/drivers/')
+      return request.data
+    },
   },
 })
