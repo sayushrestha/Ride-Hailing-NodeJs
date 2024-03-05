@@ -1,7 +1,7 @@
 POST http://localhost:3000/passengers HTTP/1.1
 content-type: application/json
 
-{"name":"4", "age":18, "location":"kuzguncuk"}
+{"name":"Arife", "age":18, "location":"Kayseri"}
 
 ###
 
@@ -22,7 +22,7 @@ content-type: application/json
 POST http://localhost:3000/drivers HTTP/1.1
 content-type: application/json
 
-{"name":"hilal young driver", "age":21, "location":"Levent"}
+{"name":"stefan", "age":21, "location":"Levent"}
 ###
 DELETE http://localhost:3000/drivers/65ca0b88fc4cc047dc4a006e HTTP/1.1
 
