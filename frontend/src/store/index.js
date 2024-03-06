@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL =  process.env.VUE_APP_API_URL || 'http://localhost:3000'
 
 const Mutations = {
   INCREMENT: 'INCREMENT',

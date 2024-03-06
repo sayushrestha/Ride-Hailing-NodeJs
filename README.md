@@ -6,6 +6,11 @@ To clone the project run;
 https://github.com/HilalKocak/Ride-Hailing-NodeJs.git
 ```
 
+#### You can try deployed app with the link:
+```
+https://frontend-6x66i4sepa-ew.a.run.app/
+```
+
 To install dependencies run:
 ```
 npm install
